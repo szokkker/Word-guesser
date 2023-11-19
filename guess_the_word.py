@@ -6,7 +6,6 @@ def main():
     corrects = []
     inp = ""
     word = word_selector()
-    print(word)
     lines(word)
     guessed = 0
     while guessed != len(word):
