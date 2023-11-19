@@ -11,7 +11,8 @@ def main():
     while guessed != len(word):
         guess = guesss(word)
         guessed = guessed + guess[0]
-        corrects.append(guess[1])
+        if guess[0] == 1:
+            corrects.append(guess[1])    
         letters(corrects)
         lines(word)
     
@@ -34,14 +35,14 @@ def letters(corrects):
     print('')
 
 def word_selector():
-    words = ["cat", "dog", "dolphin"]
+    words = ["cat", "dog", "dolphin", "mouse", "rat", "tree", "chess",]
     random_number = random.randint(0, 2)
     return(words[random_number])
 
 def guesss(correct):
     miss = True
     while(miss):
-        inp = input()
+        inp = input("Write a single letter: ")
         if not inp.isdigit():
             if len(inp)>1:
                 print("Write only a single letter")
@@ -55,6 +56,7 @@ def check_letter(correct, inp):
         clear()
         return 1
     if inp not in correct:
+        clear()
         return 0
 
 def clear():
